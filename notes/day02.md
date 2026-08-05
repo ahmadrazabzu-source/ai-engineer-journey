@@ -1,130 +1,65 @@
-'''1. Variables and primitive data types — 10 minutes
-Read the Python 3.12 documentation sections on numbers, variable assignment and strings. Python distinguishes
-integers such as 20, floating-point values such as 1.6, and strings such as "1975"; assignment associates a 
-variable name with a value.'''
+# Day 2 Learning Log
 
-participant_id = "SYN-001"
-age = 42
-temperature_c = 36.8
-consent_confirmed = True
-missing_value = None
+## Concepts completed
 
-print(participant_id, type(participant_id))
-print(age, type(age))
-print(temperature_c, type(temperature_c))
-print(consent_confirmed, type(consent_confirmed))
-print(missing_value, type(missing_value))
+- Variables and assignment
+- Primitive data types (`str`, `int`, `bool`)
+- Type conversion (`int()`, `type()`)
+- Boolean expressions (`==`, `>=`, `<=`, `in`)
+- Conditions (`if`, `elif`, `else`)
+- For loops (`for char in string:`)
+- While loops (`while True:` input validation loops)
+- Functions (defining signatures with type hints `-> str` and docstrings)
+- Input validation (cleaning strings before validating)
+- Refactoring (extracting inline script logic into modular, testable functions)
 
-'''2. Conditions — 8 minutes
-Read the official if, elif and else section. An if chain evaluates conditions in sequence; elif avoids unnecessary
-nested indentation, while else handles cases not matched earlier.'''
-age = 42
-if age < 18:
-    print("Minor")
-elif age < 65:
-    print("Adult")
-else:
-    print("Older Adult")
+## Three functions I created
 
-# 1. ASSIGNMENT (=): Setting the patient's age when they arrive
-patient_age = 42   # "Store 42 inside patient_age"
+1. `normalize_record_id(raw_record_id: str) -> str`
+   - *Purpose:* Trims leading/trailing whitespace and converts ID to uppercase.
+2. `is_valid_age_text(age_text: str) -> bool`
+   - *Purpose:* Validates if string input represents a whole number integer between 0 and 120.
+3. `classify_age_group(age: int) -> str`
+   - *Purpose:* Categorizes a validated age integer into `"minor"`, `"adult"`, or `"older_adult"`.
 
+## Boundary cases tested
 
-# 2. COMPARISON (==): Checking if the patient is eligible for a senior discount
-if patient_age == 65:
-    print("Eligible for senior discount!")
-else:
-    print("Standard adult rate applies.")
+Below are the exact values used when testing `is_valid_age_text()` and their resulting outputs:
 
-# List ages and iterate through them
-ages = [42, 99, 80]
+| Test Input | Input Representation (`!r`) | Expected Result | Actual Output | Reason |
+| :--- | :--- | :---: | :---: | :--- |
+| `"42"` | `'42'` | `True` | `True` | Standard valid integer |
+| `"0"` | `'0'` | `True` | `True` | Lower valid range boundary |
+| `"120"` | `'120'` | `True` | `True` | Upper valid range boundary |
+| `"121"` | `'121'` | `False` | `False` | Exceeds max age range (>120) |
+| `"-1"` | `'-1'` | `False` | `False` | Negative number (fails `.isdigit()`) |
+| `"42.5"` | `'42.5'` | `False` | `False` | Decimal float (fails `.isdigit()`) |
+| `"forty"` | `'forty'` | `False` | `False` | Non-numeric word (fails `.isdigit()`) |
+| `""` | `''` | `False` | `False` | Empty string check |
+| `" 42 "` | `' 42 '` | `True` | `True` | Valid integer padded with whitespace |
 
-for age in ages:
-    if age < 18:
-        print(f"Age {age}: Minor")
-    elif age < 65:
-        print(f"Age {age}: Adult")
-    else:
-        print(f"Age {age}: Older Adult")
+## Real error or confusion
 
-'''3. Boolean logic — 5 minutes
-Read the official documentation on boolean operations and logical operators in Python.'''
-x = True
-y = False
-z = x and y  # False
-w = x or y   # True
-v = not x    # False
+Confusing the loop variable (`char`) inside a `for char in record_id:` loop with the total string (`record_id`), and expecting character inspection methods like `char.isdigit()` or `char.isalpha()` to return total occurrence counts (e.g., `7` or `3`) instead of boolean values (`True`/`False`).
 
-age = 42
-consent_confirmed = True
-eligible = age >= 18 and consent_confirmed
-print(eligible)
+## Root cause
 
-age = 42
-consent_confirmed = False
-eligible = age >= 18 and consent_confirmed
-print(eligible)
+In Python, a `for` loop iterates through a string **one character at a time**. On every turn of the loop, `char` holds a single character (`"S"`, `"-"`, `"2"`, etc.), not the entire string `"SYN-2026-015"`. Therefore, methods like `char.isdigit()` evaluate to `True` or `False` for that single character on each pass. The numbers (`3`, `7`, `2`) came from incrementing separate counter variables (`letter_count`, `digit_count`, `hyphen_count`), not from calling `.isdigit()` directly.
 
-age = 42
-age >= 18 and consent_confirmed # type: ignore
-age < 18 or age > 18 # type: ignore
-not consent_confirmed # type: ignore
-'''OR''' '''OR''' '''OR''' '''OR''' '''OR''' '''OR''' '''OR''' '''OR''' '''OR''' '''OR''' '''OR''' '''OR'''
-print(age >= 18 and consent_confirmed)
-print(age < 18 or age > 18)
-print(not consent_confirmed)
+## Fix
 
-'''4. for and range() — 5 minutes
-Read the official documentation on for loops and the range() function. A for loop iterates over a sequence of values,
-Python’s for statement iterates over items in a sequence. range() produces a sequence of integers for iteration,
-and its ending value is excluded. For example, range(1, 6) produces 1, 2, 3, 4, 5.'''
+1. Understood that `char` holds single individual characters sequentially during loop iteration.
+2. Used string methods directly on the complete string variable `record_id` when inspecting the entire record (e.g., `record_id.count("-")`).
+3. Used generator expressions and `sum()` to perform single-line counting across the full string: `sum(1 for c in record_id if c.isdigit())`.
 
-for visit_number in range(1, 6):
-    print(f"Visit {visit_number}")
+## What I can now explain without help
 
-'''5. while loops — 5 minutes
-Read the official documentation on while loops. A while loop continues to execute as long as a condition is true.
-A while loop continues as long as its condition remains true. Python uses indentation to determine which statements
-belong to the loop.'''
+1. **Difference between `str` methods and integer counters:** How `.isdigit()` returns a boolean for single character checks versus accumulating integer counts across a string.
+2. **Input normalization sequence:** Why applying `.strip().lower()` before validation prevents edge-case failures caused by unexpected whitespace or mixed capitalization (`" YES "` $\rightarrow$ `"yes"`).
+3. **Difference between `print()` and `return` in functions:** How `return` passes data back to the caller for variable assignment, whereas `print()` only displays text to standard output.
+4. **Safe integer parsing without `try/except`:** Using `.strip().isdigit()` to verify string contents before executing `int()`, avoiding unexpected `ValueError` runtime crashes.
+5. **The role of `if __name__ == "__main__":`:** How entry-point guards prevent script execution code inside `main()` from running automatically when importing helper functions into other modules.
 
-count = 0
-while count < 5:
-    print(f"Count {count}")
-    count += 1
+## Next smallest action
 
-attempt = 1
-while attempt <= 3:
-    print(f"Attempt: {attempt}")
-    attempt += 1
-
-attempt = 5
-while attempt <= 400:
-    print(f"Attempt: {attempt}")
-    attempt *= 5
-
-attempt = 5
-while attempt <= 400:
-    print(f"Attempt: {attempt}")
-    attempt -= (-50)
-
-attempt = 5
-while attempt <= 400:
-    print(f"Attempt: {attempt}")
-    attempt -= -50
-
-'''6. Functions — 5 minutes
-A function is introduced with def, followed by its name and parameters. Its body must be indented.
-A return statement sends a value back to the caller; a function without an explicit return produces None.'''
-
-def classify_age(age: int) -> str:
-    """Return a broad synthetic-study age category."""
-    '''Condition inside a function body is indented. The function returns a string based on the age input.'''
-    if age < 18:
-        return "minor"
-    if age < 65:
-        return "adult"
-    return "older_adult"
-
-
-result = classify_age(42)
-print(result)
+Begin Day 3 data structures (lists, dictionaries, sets) and build the synthetic record summarizer module.
