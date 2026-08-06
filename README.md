@@ -12,7 +12,7 @@ Environment
     Git
     JupyterLab
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 
 ## Day 1 — Environment Setup & First Data Script
 
@@ -38,7 +38,7 @@ python -m pip install -r requirements.txt
 python src/hello_data.py
 
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 
 ## Day 2 — Python Fundamentals & Input Validation
 
@@ -63,3 +63,42 @@ python -m pip install -r requirements.txt
 # 4. Run Day 2 exercises
 python exercises/day02.py
 
+---------------------------------------------------------------------------------------------------------------------
+
+## Day 3: Data structures and lookup complexity
+
+I built a synthetic healthcare-record summarizer using Python lists, tuples,
+dictionaries, sets, a list-based stack and `collections.deque`.
+
+### Structure choices
+
+- A list stores the ordered collection of synthetic records.
+- Each record is represented by a dictionary.
+- A tuple stores the fixed required-field names.
+- A set tracks unique and duplicate record IDs.
+- A list demonstrates LIFO stack behavior.
+- A deque demonstrates FIFO queue behavior.
+- A dictionary index supports direct lookup by record ID.
+
+### Lookup experiment
+
+Dataset size: 10,000 synthetic records
+
+| Target | List lookup | Dictionary lookup |
+|---|---:|---:|
+| First record | 0.000012 s | 0.000025 s |
+| Last record | 0.098431 s | 0.000026 s |
+| Missing record | 0.097812 s | 0.000026 s |
+
+A list search is O(n) because it may inspect records sequentially. A dictionary
+lookup is O(1) on average because the record ID is used as a hash-based key.
+
+The measured values are specific to my computer and experiment. They illustrate
+the expected behavior but do not independently prove the theoretical complexity.
+
+### Privacy and limitations
+
+All records are synthetic. The program contains no real patient identifiers and
+must not be used for clinical decisions.
+
+---------------------------------------------------------------------------------------------------------------------
