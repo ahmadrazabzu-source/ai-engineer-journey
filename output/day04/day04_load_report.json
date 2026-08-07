@@ -1,0 +1,53 @@
+{
+  "input_file": "mixed_records.csv",
+  "total_rows": 6,
+  "valid_row_count": 2,
+  "rejected_row_count": 4,
+  "status": "completed_with_rejections",
+  "valid_records": [
+    {
+      "record_id": "SYN-001",
+      "age": 42,
+      "department": "Cardiology",
+      "consent_confirmed": true,
+      "completed_visits": 3
+    },
+    {
+      "record_id": "SYN-002",
+      "age": 57,
+      "department": "Neurology",
+      "consent_confirmed": true,
+      "completed_visits": 2
+    }
+  ],
+  "rejected_rows": [
+    {
+      "csv_line_number": 4,
+      "record_id": "SYN-003",
+      "errors": [
+        "age must be a whole number"
+      ]
+    },
+    {
+      "csv_line_number": 5,
+      "record_id": null,
+      "errors": [
+        "record_id is required"
+      ]
+    },
+    {
+      "csv_line_number": 6,
+      "record_id": "SYN-005",
+      "errors": [
+        "age must be between 0 and 120"
+      ]
+    },
+    {
+      "csv_line_number": 7,
+      "record_id": "SYN-006",
+      "errors": [
+        "consent_confirmed must be yes/no or true/false"
+      ]
+    }
+  ]
+}
