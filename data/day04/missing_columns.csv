@@ -1,0 +1,3 @@
+record_id,age,consent_confirmed,completed_visits
+SYN-101,41,yes,2
+SYN-102,63,no,3

@@ -1,0 +1,7 @@
+record_id,age,department,consent_confirmed,completed_visits
+SYN-001,42,Cardiology,yes,3
+SYN-002,57,Neurology,true,2
+SYN-003,forty,Pharmacy,yes,1
+,35,Cardiology,no,2
+SYN-005,121,Pharmacy,yes,4
+SYN-006,73,Neurology,maybe,3
