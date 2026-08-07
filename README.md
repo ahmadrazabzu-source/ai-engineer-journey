@@ -102,3 +102,36 @@ All records are synthetic. The program contains no real patient identifiers and
 must not be used for clinical decisions.
 
 ---------------------------------------------------------------------------------------------------------------------
+## Day 5 — NumPy, pandas and healthcare EDA
+
+I analyzed the public UCI Heart Failure Clinical Records dataset using NumPy
+and pandas.
+
+### Workflow
+
+1. Preserved the original raw CSV.
+2. Inspected dataset dimensions, column names and data types.
+3. Audited missing values.
+4. Audited duplicate rows.
+5. Checked categorical/binary values.
+6. Standardized column naming in a copied DataFrame.
+7. Used NumPy for numerical summaries.
+8. Used pandas `describe()` for descriptive statistics.
+9. Used `groupby()` for category-level summaries.
+10. Used `merge()` to combine numerical summaries with a feature dictionary.
+11. Exported a cleaned CSV.
+12. Re-read the exported file to verify reproducibility.
+13. Exported a machine-readable cleaned schema.
+
+### Data source
+
+Heart Failure Clinical Records — UCI Machine Learning Repository  
+DOI: 10.24432/C5Z89R  
+License: CC BY 4.0
+
+### Limitations
+
+The work is descriptive and educational. No clinical conclusions or causal
+claims are made, and no predictive model is trained on Day 5.
+
+---------------------------------------------------------------------------------------------------------------------
