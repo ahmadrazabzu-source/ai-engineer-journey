@@ -1,0 +1,14 @@
+column,dtype,missing_count,unique_count
+age,float64,0,47
+anaemia,int64,0,2
+creatinine_phosphokinase,int64,0,208
+diabetes,int64,0,2
+ejection_fraction,int64,0,17
+high_blood_pressure,int64,0,2
+platelets,float64,0,176
+serum_creatinine,float64,0,40
+serum_sodium,int64,0,27
+sex,int64,0,2
+smoking,int64,0,2
+time,int64,0,148
+death_event,int64,0,2

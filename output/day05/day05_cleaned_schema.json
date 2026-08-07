@@ -1,0 +1,80 @@
+{
+    "age": {
+        "dtype": "float64",
+        "is_nullable": false,
+        "min_val": 40.0,
+        "max_val": 95.0
+    },
+    "anaemia": {
+        "dtype": "int64",
+        "is_nullable": false,
+        "min_val": 0.0,
+        "max_val": 1.0
+    },
+    "creatinine_phosphokinase": {
+        "dtype": "int64",
+        "is_nullable": false,
+        "min_val": 23.0,
+        "max_val": 7861.0
+    },
+    "diabetes": {
+        "dtype": "int64",
+        "is_nullable": false,
+        "min_val": 0.0,
+        "max_val": 1.0
+    },
+    "ejection_fraction": {
+        "dtype": "int64",
+        "is_nullable": false,
+        "min_val": 14.0,
+        "max_val": 80.0
+    },
+    "high_blood_pressure": {
+        "dtype": "int64",
+        "is_nullable": false,
+        "min_val": 0.0,
+        "max_val": 1.0
+    },
+    "platelets": {
+        "dtype": "float64",
+        "is_nullable": false,
+        "min_val": 25100.0,
+        "max_val": 850000.0
+    },
+    "serum_creatinine": {
+        "dtype": "float64",
+        "is_nullable": false,
+        "min_val": 0.5,
+        "max_val": 9.4
+    },
+    "serum_sodium": {
+        "dtype": "int64",
+        "is_nullable": false,
+        "min_val": 113.0,
+        "max_val": 148.0
+    },
+    "sex": {
+        "dtype": "int64",
+        "is_nullable": false,
+        "min_val": 0.0,
+        "max_val": 1.0
+    },
+    "smoking": {
+        "dtype": "int64",
+        "is_nullable": false,
+        "min_val": 0.0,
+        "max_val": 1.0
+    },
+    "time": {
+        "dtype": "int64",
+        "is_nullable": false,
+        "min_val": 4.0,
+        "max_val": 285.0
+    },
+    "death_event": {
+        "dtype": "int64",
+        "is_nullable": false,
+        "min_val": 0.0,
+        "max_val": 1.0
+    }
+}

@@ -1,0 +1,14 @@
+feature,feature_group
+age,demographic
+anaemia,binary_condition
+creatinine_phosphokinase,laboratory
+diabetes,binary_condition
+ejection_fraction,measurement
+high_blood_pressure,binary_condition
+platelets,laboratory
+serum_creatinine,laboratory
+serum_sodium,laboratory
+sex,demographic
+smoking,behavior
+time,followup
+death_event,target
