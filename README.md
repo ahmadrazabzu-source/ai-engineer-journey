@@ -135,3 +135,46 @@ The work is descriptive and educational. No clinical conclusions or causal
 claims are made, and no predictive model is trained on Day 5.
 
 ---------------------------------------------------------------------------------------------------------------------
+
+## Day 6 — SQL Analytics with SQLite
+
+I loaded the cleaned Day 5 healthcare dataset into an SQLite relational
+database and answered ten analytical questions using SQL.
+
+### SQL concepts demonstrated
+
+- SELECT
+- WHERE
+- AND
+- ORDER BY
+- LIMIT
+- COUNT
+- AVG
+- GROUP BY
+- aliases
+- INNER JOIN
+- subqueries
+
+### Database design
+
+The SQLite database contains:
+
+- `heart_failure_records` — cleaned analytical dataset
+- `outcome_lookup` — lookup table used to demonstrate relational joins
+
+### Reproducibility
+
+The database is rebuilt from the Day 5 cleaned CSV using
+`exercises/day06_load_sqlite.py`.
+
+The analytical SQL is stored separately in:
+
+`sql/day06_queries.sql`
+
+### Limitations
+
+Queries are descriptive and educational. They do not establish causality,
+clinical thresholds or treatment recommendations.
+
+---------------------------------------------------------------------------------------------------------------------
+
