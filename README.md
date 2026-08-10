@@ -107,7 +107,7 @@ must not be used for clinical decisions.
 
 I built a deterministic CSV intake validator using Python's standard library.
 
-### Loader behavior
+Loader behavior'''
 
 The loader:
 
@@ -228,6 +228,38 @@ Reusable validation logic from the first week has been extracted into:
 
 ```powershell
 python -m pip install -e ".[dev]"
+
+---------------------------------------------------------------------------------------------------------------------
+
+## Day 8 — Machine Learning Foundations
+
+Day 8 focused on designing a valid machine-learning experiment before model
+training.
+
+### Concepts
+
+- Features (`X`)
+- Labels (`y`)
+- Supervised learning
+- Unsupervised learning
+- Train/validation/test separation
+- Stratified splitting
+- Reproducibility
+- Prediction-time reasoning
+- Target leakage
+- Preprocessing leakage
+- Entity leakage
+- Temporal leakage
+
+### Artifacts
+
+- `docs/day08_ml_workflow.md`
+- `docs/day08_leakage_checklist.md`
+- `exercises/day08_split_demo.py`
+- `output/day08_split_summary.csv`
+
+No predictive model was trained on Day 8. Model development begins after the
+experiment and preprocessing design have been defined.
 
 ---------------------------------------------------------------------------------------------------------------------
 
