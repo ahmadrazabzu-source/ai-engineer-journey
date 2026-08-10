@@ -102,6 +102,46 @@ All records are synthetic. The program contains no real patient identifiers and
 must not be used for clinical decisions.
 
 ---------------------------------------------------------------------------------------------------------------------
+
+## Day 4: Robust CSV ingestion
+
+I built a deterministic CSV intake validator using Python's standard library.
+
+### Loader behavior
+
+The loader:
+
+- Reads rows using `csv.DictReader`.
+- Validates required column names.
+- Cleans and validates individual fields.
+- Separates valid and rejected rows.
+- Records CSV line numbers and rejection reasons.
+- Writes a structured JSON ingestion report.
+- Uses logging for operational and failure information.
+- Returns different status codes for different failure types.
+
+### Validation result
+
+Input file: `data/day04/mixed_records.csv`
+
+- Total rows: 6
+- Valid rows: 2
+- Rejected rows: 4
+
+### Failure tests
+
+1. Missing input file
+2. Missing required `department` column
+
+Both failures are detected explicitly and do not produce misleading successful
+results.
+
+### Privacy and limitations
+
+All records are synthetic. The loader is an educational portfolio project and
+has not been validated for real clinical or production data.
+
+---------------------------------------------------------------------------------------------------------------------
 ## Day 5 — NumPy, pandas and healthcare EDA
 
 I analyzed the public UCI Heart Failure Clinical Records dataset using NumPy
@@ -175,6 +215,19 @@ The analytical SQL is stored separately in:
 
 Queries are descriptive and educational. They do not establish causality,
 clinical thresholds or treatment recommendations.
+
+---------------------------------------------------------------------------------------------------------------------
+
+## Week 1 mini package
+
+Reusable validation logic from the first week has been extracted into:
+
+`src/ai_engineer_journey/`
+
+### Development installation
+
+```powershell
+python -m pip install -e ".[dev]"
 
 ---------------------------------------------------------------------------------------------------------------------
 
