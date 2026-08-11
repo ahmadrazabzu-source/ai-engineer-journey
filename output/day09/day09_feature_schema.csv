@@ -1,0 +1,17 @@
+processed_feature,processing
+age,numeric_scaled
+creatinine_phosphokinase,numeric_scaled
+ejection_fraction,numeric_scaled
+platelets,numeric_scaled
+serum_creatinine,numeric_scaled
+serum_sodium,numeric_scaled
+anaemia_0,categorical_one_hot
+anaemia_1,categorical_one_hot
+diabetes_0,categorical_one_hot
+diabetes_1,categorical_one_hot
+high_blood_pressure_0,categorical_one_hot
+high_blood_pressure_1,categorical_one_hot
+sex_0,categorical_one_hot
+sex_1,categorical_one_hot
+smoking_0,categorical_one_hot
+smoking_1,categorical_one_hot

@@ -263,3 +263,37 @@ experiment and preprocessing design have been defined.
 
 ---------------------------------------------------------------------------------------------------------------------
 
+## Day 9 — Leakage-Safe Preprocessing
+
+I built a scikit-learn preprocessing system using `Pipeline` and
+`ColumnTransformer`.
+
+### Numeric pipeline
+
+- Median imputation
+- Standard scaling
+
+### Categorical pipeline
+
+- Most-frequent imputation
+- One-hot encoding
+- Unknown-category handling
+
+### Leakage protection
+
+The dataset is split before learned preprocessing. The preprocessing object is
+fitted only on the training subset.
+
+Validation and test data use `.transform()` only.
+
+### Proof
+
+- Training scaler statistics were inspected.
+- Output feature schemas were compared across splits.
+- A controlled missing-value stress test was transformed without refitting.
+- The original UCI data remained unchanged.
+
+No predictive model was trained on Day 9.
+
+---------------------------------------------------------------------------------------------------------------------
+

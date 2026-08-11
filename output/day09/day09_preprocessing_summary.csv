@@ -1,0 +1,4 @@
+split,raw_rows,raw_features,processed_features,target_positive_rate
+train,179,11,16,0.3240223463687151
+validation,60,11,16,0.31666666666666665
+test,60,11,16,0.31666666666666665
