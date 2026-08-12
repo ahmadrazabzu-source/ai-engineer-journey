@@ -1,0 +1,2 @@
+model,split,threshold,accuracy,precision,recall,f1,roc_auc
+logistic_regression,validation,0.5,0.7166666666666667,0.5625,0.47368421052631576,0.5142857142857142,0.7792041078305519

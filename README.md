@@ -297,3 +297,28 @@ No predictive model was trained on Day 9.
 
 ---------------------------------------------------------------------------------------------------------------------
 
+## Day 10 — Logistic Regression Baseline
+
+I trained the first classification baseline by combining the Day 9
+`ColumnTransformer` preprocessing system with scikit-learn
+`LogisticRegression`.
+
+### Workflow
+
+1. Reused the reproducible train/validation/test split.
+2. Preserved the protected test set.
+3. Fitted preprocessing only through the training pipeline.
+4. Trained Logistic Regression on training data.
+5. Generated validation probabilities.
+6. Established a validation baseline at threshold 0.50.
+7. Compared decision behavior at thresholds 0.30, 0.50 and 0.70.
+8. Inspected transformed-feature coefficients.
+9. Demonstrated the effect of regularization strength on coefficient magnitude.
+
+### Important limitation
+
+Validation results are for model development. No clinical threshold has been
+established, and coefficient magnitude is not interpreted as causal clinical
+importance.
+
+---------------------------------------------------------------------------------------------------------------------
