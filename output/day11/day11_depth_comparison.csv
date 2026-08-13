@@ -1,0 +1,2 @@
+model,train_accuracy,validation_accuracy,train_f1,validation_f1,train_roc_auc,validation_roc_auc,fit_seconds,max_depth
+decision_tree_depth_None,1.0,0.75,1.0,0.5945945945945946,1.0,0.7041078305519898,0.02417559999594232,None

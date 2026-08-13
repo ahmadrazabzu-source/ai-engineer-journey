@@ -321,4 +321,39 @@ Validation results are for model development. No clinical threshold has been
 established, and coefficient magnitude is not interpreted as causal clinical
 importance.
 
----------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
+
+## Day 11 — Decision Trees, Random Forests and Overfitting
+
+I compared the Day 10 Logistic Regression baseline with Decision Trees of
+different depths and a Random Forest classifier.
+
+### Questions investigated
+
+- How does tree depth affect training performance?
+- When does additional tree complexity begin to overfit?
+- Does a Random Forest generalize better than a single tree?
+- Does the nonlinear model meaningfully outperform Logistic Regression?
+- Which transformed features receive high tree-based importance?
+
+### Experimental controls
+
+All models use the same feature set and the same reproducible
+train/validation/test split.
+
+The protected test set remains unused for model selection.
+
+### Proof
+
+- `output/day11_depth_comparison.csv`
+- `output/day11_model_comparison.csv`
+- `output/day11_model_comparison.png`
+- `output/day11_feature_importance.csv`
+
+### Limitation
+
+Tree impurity-based feature importance is predictive and model-specific. It is
+not evidence of causality or clinical importance.
+
+--------------------------------------------------------------------------------------------------------------------
+
